@@ -1,53 +1,56 @@
-import { Component, OnInit, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  forwardRef,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
-    selector: 'app-input',
-    templateUrl: './input.component.html',
-    styleUrls: ['./input.component.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => InputComponent),
-            multi: true
-        }
-    ]
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
-export class InputComponent implements OnInit, ControlValueAccessor {
-    @Output() changed = new EventEmitter<string>();
+export class InputComponent implements ControlValueAccessor {
+  @Output() changed = new EventEmitter<string>();
 
-    value: string;
+  value: string;
 
-    constructor() { 
-      this.value = '';
+  constructor() {
+    this.value = '';
+  }
 
-    }
+  private propagateChange: any = () => {};
+  private propagateTouched: any = () => {};
 
-    ngOnInit(): void {
-    }
+  writeValue(value: string): void {
+    this.value = value;
+  }
 
-    private propagateChange: any = () => { };
-    private propagateTouched: any = () => { };
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
 
-    writeValue(value: string): void {
-        this.value = value;
-    }
+  registerOnTouched(fn: any): void {
+    this.propagateTouched = fn;
+  }
 
-    registerOnChange(fn: any): void {
-        this.propagateChange = fn;
-    }
+  onKeyup(value: string): void {
+    this.value = value;
+    this.propagateChange(value);
+    this.changed.emit(value);
+  }
 
-    registerOnTouched(fn: any): void {
-        this.propagateTouched = fn;
-    }
-
-    onKeyup(value: string): void {
-        this.value = value;
-        this.propagateChange(value);
-        this.changed.emit(value);
-    }
-
-    onBlur(): void {
-        this.propagateTouched();
-    }
+  onBlur(): void {
+    this.propagateTouched();
+  }
 }

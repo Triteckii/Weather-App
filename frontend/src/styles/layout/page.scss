@@ -27,12 +27,6 @@
   &:focus {
     border: 1px solid $primary-dark;
   }
-
-  &:disabled {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    color: rgba(0, 0, 0, 0.38);
-  }
 }
 // Button
 .app-button {
@@ -49,5 +43,24 @@
       background: $primary;
       border: 2px solid  $primary;
       color: $on-primary;
+  }
+}
+
+
+.action-error {
+  background-color: $base;
+  color: $on-base;
+
+  .mat-simple-snackbar-action {
+    color: $error;
+  }
+}
+
+.action-success {
+  background-color: $base;
+  color: $on-base;
+
+  .mat-simple-snackbar-action {
+    color: $success;
   }
 }

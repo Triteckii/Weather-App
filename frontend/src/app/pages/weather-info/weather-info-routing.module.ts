@@ -4,14 +4,13 @@ import { WeatherInfoComponent } from './weather-info.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: WeatherInfoComponent
-
-  }
+    path: '',
+    component: WeatherInfoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WeatherInfoRoutingModule { }
+export class WeatherInfoRoutingModule {}

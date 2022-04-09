@@ -6,15 +6,21 @@
     <div class="wrapper">
       <app-spinner *ngIf="showSpinner"></app-spinner>
 
-      <form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
-        <app-form-field [control]="form.controls.search">
+      <form
+        [formGroup]="form"
+        novalidate
+        autocomplete="off"
+        (ngSubmit)="onSubmit()"
+      >
+        <app-form-field
+          [control]="form.controls.code"
+          [patternError]="regexErrors.numbers"
+        >
           <div class="search-field">
-            <app-input formControlName="search"></app-input>
+            <app-input formControlName="code"></app-input>
             <app-button type="submit">Add Location</app-button>
           </div>
-
         </app-form-field>
-
       </form>
     </div>
   </div>

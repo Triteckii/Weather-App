@@ -6,15 +6,18 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path:'',
-        loadChildren: () => import('./pages/weather-info/weather-info.module').then(m => m.WeatherInfoModule)
-      }
-    ]
-  }
+        path: '',
+        loadChildren: () =>
+          import('./pages/weather-info/weather-info.module').then(
+            (m) => m.WeatherInfoModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

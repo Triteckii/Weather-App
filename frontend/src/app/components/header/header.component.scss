@@ -1,20 +1,19 @@
 @import "styles/mixins";
 @import "styles/colors";
 
-
 .header {
-    height: 60px;
-    padding: 0 20px;
-    display:flex;
-    background-color: $primary;
-    justify-content: space-between;
-    
-    @include shadow;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  background-color: $primary;
+  justify-content: space-between;
 
-    &__title {
-        font-size: 1.2em;
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-    }
+  @include shadow;
+
+  &__title {
+    font-size: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
 }
