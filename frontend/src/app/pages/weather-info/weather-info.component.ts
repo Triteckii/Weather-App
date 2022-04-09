@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-weather-info',
   templateUrl: './weather-info.component.html',
@@ -20,6 +21,6 @@ export class WeatherInfoComponent implements OnInit {
 
   onSubmit(): void {
     console.log('Submit!');
-
   }
+
 }

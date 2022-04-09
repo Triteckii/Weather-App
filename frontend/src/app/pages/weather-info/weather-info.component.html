@@ -7,7 +7,7 @@
       <app-spinner *ngIf="showSpinner"></app-spinner>
 
       <form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
-        <app-form-field [required]="true" [control]="form.controls['search']">
+        <app-form-field [control]="form.controls.search">
           <div class="search-field">
             <app-input formControlName="search"></app-input>
             <app-button type="submit">Add Location</app-button>
