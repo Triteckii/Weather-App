@@ -20,6 +20,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ControlsModule,
     IndicatorsModule,
     ButtonsModule,
-  ],
+  ]
 })
 export class WeatherInfoModule {}
